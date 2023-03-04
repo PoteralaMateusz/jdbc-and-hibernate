@@ -26,6 +26,11 @@ public class LambdaExercises {
         BoysDontCry lambdaClassReference = () -> System.out.println("Lambda silnoręki");
         lambdaClassReference.silnoreki();
 
+        System.out.println("-------------Coffee time --------------");
+
+        CoffeeMaker coffeeMaker = (water, coffeeType) -> "Coffee prepare: water ->  " + water + ", coffee type -> " + coffeeType;
+
+        System.out.println(coffeeMaker.prepare(10,"Latte"));
 
     }
 }

@@ -1,5 +1,8 @@
 package pl.sda.orange2.lambda;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LambdaExercises {
 
     public static void main(String[] args) {
@@ -10,6 +13,7 @@ public class LambdaExercises {
 
         ChlopakiNiePlacza boy2 = new ChlopakiNiePlacza();
         boy2.sing();
+        List<ChlopakiNiePlacza> boys = new ArrayList<>();
 
         BoysDontCry anonymousClassReference = new BoysDontCry() {
             @Override
@@ -21,6 +25,7 @@ public class LambdaExercises {
 
         BoysDontCry lambdaClassReference = () -> System.out.println("Lambda silnoręki");
         lambdaClassReference.silnoreki();
+
 
     }
 }

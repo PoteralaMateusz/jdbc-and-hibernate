@@ -11,5 +11,16 @@ public class LambdaExercises {
         ChlopakiNiePlacza boy2 = new ChlopakiNiePlacza();
         boy2.sing();
 
+        BoysDontCry anonymousClassReference = new BoysDontCry() {
+            @Override
+            public void silnoreki() {
+                System.out.println("Anonimowo silnoreki");
+            }
+        };
+        anonymousClassReference.silnoreki();
+
+        BoysDontCry lambdaClassReference = () -> System.out.println("Lambda silnoręki");
+        lambdaClassReference.silnoreki();
+
     }
 }

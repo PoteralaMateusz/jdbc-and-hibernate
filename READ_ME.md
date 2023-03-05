@@ -6,3 +6,4 @@
 ### Merge types
 -fast-forward
 -with merch commit
+### Git workflow

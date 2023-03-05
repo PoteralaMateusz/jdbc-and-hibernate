@@ -15,15 +15,16 @@ public class TestConnection {
             System.out.println("Got connection: " + (h2Connection != null));
 
             Statement queryStatement = h2Connection.createStatement();
-            ResultSet queryResult =  queryStatement.executeQuery(query);
+            ResultSet queryResult = queryStatement.executeQuery(query);
 
-            while (queryResult.next()){
+            while (queryResult.next()) {
                 System.out.println("id: " + queryResult.getInt(1));
                 System.out.println("name: " + queryResult.getString(2));
             }
 
         } catch (SQLException e) {
-            System.out.println("No connection!" + e );
+            System.out.println("No connection!" + e);
+            e.printStackTrace();
         }
     }
 }

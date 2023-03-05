@@ -9,7 +9,7 @@ public class LambdaExercises {
 
         BoysDontCry boy = new ChlopakiNiePlacza();
         boy.silnoreki();
-        ((ChlopakiNiePlacza)boy).sing();
+        ((ChlopakiNiePlacza) boy).sing();
 
         ChlopakiNiePlacza boy2 = new ChlopakiNiePlacza();
         boy2.sing();
@@ -30,7 +30,7 @@ public class LambdaExercises {
 
         CoffeeMaker coffeeMaker = (water, coffeeType) -> "Coffee prepare: water ->  " + water + ", coffee type -> " + coffeeType;
 
-        System.out.println(coffeeMaker.prepare(10,"Latte"));
+        System.out.println(coffeeMaker.prepare(10, "Latte"));
 
     }
 }

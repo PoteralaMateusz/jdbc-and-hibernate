@@ -15,7 +15,28 @@ public class CarDao implements DataAccess<Car, Long> {
     }
 
     @Override
-    public void save(Car entity) {
+    public void save(Car car) {
+        String saveQuery;
+        if (car.id() != null) {
+
+        } else {
+            saveQuery = """
+                    INSERT INTO CARS (COLOUR, BRAND, MODEL) 
+                    VALUES (?, ?, ?)
+                    """;
+
+            try {
+                PreparedStatement queryStatement = dbConnection.prepareStatement(saveQuery);
+                queryStatement.setString(1, car.colour());
+                queryStatement.setString(2, car.brand());
+                queryStatement.setString(3, car.model());
+                int queryResult = queryStatement.executeUpdate();
+
+            } catch (SQLException e) {
+                System.out.println("Unexpected sql exception occurred");
+                e.printStackTrace();
+            }
+        }
 
     }
 
@@ -60,7 +81,7 @@ public class CarDao implements DataAccess<Car, Long> {
             queryStatement.setLong(1, id);
             ResultSet queryResult = queryStatement.executeQuery();
 
-            if (queryResult.next()){
+            if (queryResult.next()) {
                 result = new Car(
                         queryResult.getLong("ID"),
                         queryResult.getString("COLOUR"),

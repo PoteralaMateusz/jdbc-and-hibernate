@@ -24,6 +24,11 @@ public class CarDaoExample {
             System.out.println("First with existing id");
             Car existing = carDao.findById(1L);
             System.out.println(existing);
+            System.out.println("Deleting car by id");
+            carDao.deleteById(4L);
+
+            allCarsFromDb = carDao.findAll();
+            System.out.println("All cars form db " + allCarsFromDb);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -18,24 +18,32 @@ public class CarDao implements DataAccess<Car, Long> {
     public void save(Car car) {
         String saveQuery;
         if (car.id() != null) {
+            saveQuery = """
+                    UPDATE CARS
+                    SET COLOUR = ? , BRAND = ? , MODEL = ?
+                    WHERE ID = ?
+                    """;
 
         } else {
             saveQuery = """
                     INSERT INTO CARS (COLOUR, BRAND, MODEL) 
                     VALUES (?, ?, ?)
                     """;
+        }
 
-            try {
-                PreparedStatement queryStatement = dbConnection.prepareStatement(saveQuery);
-                queryStatement.setString(1, car.colour());
-                queryStatement.setString(2, car.brand());
-                queryStatement.setString(3, car.model());
-                int queryResult = queryStatement.executeUpdate();
-
-            } catch (SQLException e) {
-                System.out.println("Unexpected sql exception occurred");
-                e.printStackTrace();
+        try {
+            PreparedStatement queryStatement = dbConnection.prepareStatement(saveQuery);
+            queryStatement.setString(1, car.colour());
+            queryStatement.setString(2, car.brand());
+            queryStatement.setString(3, car.model());
+            if (car.id() != null){
+                queryStatement.setLong(4,car.id());
             }
+            int queryResult = queryStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Unexpected sql exception occurred");
+            e.printStackTrace();
         }
 
     }

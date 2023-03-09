@@ -4,18 +4,26 @@ import pl.sda.orange2.entity.Car;
 
 import java.util.List;
 
-public class CarDao {
+public class CarDao implements DataAccess<Car,Long> {
 
-    public void save(Car car){
+
+    @Override
+    public void save(Car entity) {
 
     }
-    public List<Car> findAll(){
-        return List.of();
-    }
-    public Car findById(Long id){
+
+    @Override
+    public List<Car> findAll() {
         return null;
     }
-    public void deleteById(Long id){
+
+    @Override
+    public Car findById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
 
     }
 }

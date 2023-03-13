@@ -33,9 +33,6 @@ public class HibernateTest {
             List<Student> students = session.createQuery("from Student", Student.class).getResultList();
             students.forEach(System.out::println);
         } catch (Exception e){
-            if (transaction != null){
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
 
